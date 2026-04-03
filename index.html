@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dr. Maximilian Wörner</title>
 
+<!-- MathJax -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 <style>
 body { font-family: Arial, sans-serif; margin:0; }
 
@@ -12,14 +15,14 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: #336633; /* dunkelgrün */
-  border-bottom: 1px solid #2a4d2a;
+  background: #ffffff;
+  border-bottom: 1px solid #ccc;
   padding: 10px;
   display: flex;
   gap: 20px;
   z-index: 1000;
 }
-nav a { text-decoration: none; color: white; font-weight: bold; }
+nav a { text-decoration: none; color: black; }
 
 .container {
   margin-top: 70px;
@@ -27,59 +30,45 @@ nav a { text-decoration: none; color: white; font-weight: bold; }
   max-width: 1000px;
 }
 
-h1, h2 { border-bottom: 1px solid #2a4d2a; padding-bottom: 5px; color:#336633; }
+h1, h2 { border-bottom: 1px solid #ccc; padding-bottom: 5px; }
 
-.card { 
-  border-radius: 10px; 
-  padding: 15px; 
-  margin-bottom: 20px; 
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 
-#videos {
-  background-color: #a3d9a5; /* grüner Hintergrund für Videos */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+#videoGrid {
   display: flex;
   gap: 20px;
+  background-color: #a3d9a5; /* grüner Hintergrund für Videos */
   padding: 15px;
-  justify-content: space-between;
   border-radius: 10px;
+  /* **Höhe vergrößert, damit TikTok-Video passt** */
+  min-height: 820px; /* 800px TikTok + etwas Abstand */
 }
 
-#videos .youtube-card {
-  background-color: black;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  padding: 5px;
-}
-
-#videos .tiktok-card {
-  background-color: white;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  padding: 5px;
-}
-
-#videos iframe {
+#videoGrid iframe {
   border: 0;
   border-radius: 6px;
 }
 
-/* YouTube unverändert */
-#videos iframe.youtube {
-  width: 100%;
+/* YouTube bleibt unverändert */
+#videoGrid iframe.youtube {
+  width: 48%;
   height: 400px;
 }
 
-/* TikTok kleiner, passt in weißen Kasten */
-#videos iframe.tiktok {
-  width: 100%;
-  height: 400px; /* halb so hoch wie vorher, kein Scrollen */
+/* TikTok 800px Höhe, passt jetzt komplett in den Abschnitt */
+#videoGrid iframe.tiktok {
+  width: 48%;
+  height: 800px;
 }
 </style>
 </head>
@@ -96,18 +85,60 @@ h1, h2 { border-bottom: 1px solid #2a4d2a; padding-bottom: 5px; color:#336633; }
 
 <h1>Dr. Maximilian Wörner</h1>
 
+<p>
+  <a href="https://www.youtube.com/@Dr.Woerner" target="_blank" rel="noopener noreferrer">YouTube</a> |
+  <a href="https://www.tiktok.com/@dr.woerner" target="_blank" rel="noopener noreferrer">TikTok</a> |
+  <a href="https://scholar.google.com/citations?user=cmIuqz4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a> |
+  <a href="https://mein.online-impressum.de/dr-woerner/" target="_blank" rel="noopener noreferrer">Impressum</a>
+</p>
+
+<div id="about" class="card">
+<h2>Über mich</h2>
+<p>Ich beschäftige mich mit angewandter Mathematik, Datenanalyse und technischen Systemen.</p>
+<ul>
+  <li>Simulationen</li>
+  <li>Machine Learning</li>
+  <li>Bild- und Fahrzeugdatenanalyse</li>
+  <li>Elektrotechnik</li>
+  <li>Laser</li>
+  <li>3D-Druck</li>
+  <li>...</li>
+</ul>
+</div>
+
 <div id="videos" class="card">
-  <div class="youtube-card">
-    <iframe class="youtube" src="https://www.youtube.com/embed/TzSq2p1QYb0" allowfullscreen></iframe>
-  </div>
-  <div class="tiktok-card">
-    <iframe class="tiktok" src="https://www.tiktok.com/embed/7566655555285060886" allowfullscreen></iframe>
-  </div>
+<h2>Videos</h2>
+<div id="videoGrid">
+  <iframe class="youtube" src="https://www.youtube.com/embed/TzSq2p1QYb0" allowfullscreen></iframe>
+  <iframe class="tiktok" src="https://www.tiktok.com/embed/7566655555285060886" allowfullscreen></iframe>
+</div>
+</div>
+
+<div id="story" class="card">
+<h2>Wie alles begann</h2>
+
+<p><b>Bachelorarbeit:</b> In meiner Bachelorarbeit habe ich den Stark-Effekt untersucht. Dabei ist folgende Differentialgleichung relevant:</p>
+<p>\[\frac{d^2y}{dx^2} - x y = 0\]</p>
+<p>Eine Lösung ist gegeben durch die Airy-Funktion:</p>
+<p>\[y(x) = \mathrm{Ai}(x)= \frac{1}{\pi} \int_0^\infty \cos\left(\frac{t^3}{3} + xt\right)\, dt\]</p>
+<p>Auf dieser Basis habe ich Spektralabschätzungen durchgeführt (Lieb-Thirring-Ungleichungen).</p>
+
+<p><b>Masterarbeit:</b> In meiner Masterarbeit habe ich den elektrischen Schwingkreis (RLC) untersucht. Dieser wird beschrieben durch die Differentialgleichung:</p>
+<p>\[LC\frac{d^2U}{dt^2} + RC\frac{dU}{dt} + U = U_{ext}(t)\]</p>
+<p>Für die Berechnung elektrischer Felder wurde folgende Beziehung verwendet:</p>
+<p>\[\Delta \phi = -\frac{\rho}{\varepsilon}, E=-\nabla \phi\]</p>
+<p>Die Modelle wurden auf Elektromotoren angewendet, insbesondere zur Analyse elektrischer Felder und deren Einfluss auf Isolierungen.</p>
+
+<p><b>Promotion:</b> In meiner Promotion habe ich die Maxwell-Gleichungen untersucht und auf das Laserschneiden angewendet.</p>
+<p>Ausgangspunkt sind die Maxwell-Gleichungen:</p>
+<p>\[\nabla \cdot E = \frac{\rho}{\varepsilon_0}, \quad \nabla \cdot B = 0, \quad \nabla \times E = -\frac{\partial B}{\partial t}, \quad \nabla \times B = \mu_0 J + \mu_0 \varepsilon_0 \frac{\partial E}{\partial t}\]</p>
+<p>Zusätzlich wurde die Schrödinger-Gleichung zur analytischen Vereinfachung herangezogen:</p>
+<p>\[i\hbar\frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m}\Delta \psi + V \psi\]</p>
+<p>Dadurch wurden effizientere Modelle hergeleitet und anschließend eine Simulation implementiert.</p>
+
 </div>
 
 </div>
-</body>
-</html>
 
 </body>
 </html>
