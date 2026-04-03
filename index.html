@@ -54,29 +54,29 @@ h2 {
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* Videoabschnitt */
-#videos {
+/* Videoabschnitt - alte funktionierende Version */
+#videoGrid {
   display: flex;
   gap: 20px;
+  background-color: #a3d9a5; /* grüner Hintergrund für Videos */
   padding: 15px;
   border-radius: 10px;
   min-height: 820px; /* passt zum TikTok-Video */
 }
 
-/* YouTube-Video */
-#videoGrid iframe.youtube {
-  width: 48%;
-  height: 400px; /* vorher funktionierende Höhe */
+#videoGrid iframe {
   border: 0;
   border-radius: 6px;
 }
 
-/* TikTok-Video */
+#videoGrid iframe.youtube {
+  width: 48%;
+  height: 400px; /* YouTube-Höhe */
+}
+
 #videoGrid iframe.tiktok {
   width: 48%;
-  height: 800px; /* vorher funktionierende Höhe, passt komplett in den Kasten */
-  border: 0;
-  border-radius: 6px;
+  height: 800px; /* TikTok-Höhe */
 }
 </style>
 </head>
@@ -114,6 +114,7 @@ h2 {
 </ul>
 </div>
 
+<!-- Videoabschnitt -->
 <div id="videos" class="card">
 <h2>Videos</h2>
 <div id="videoGrid">
