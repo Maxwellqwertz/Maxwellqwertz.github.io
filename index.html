@@ -123,10 +123,10 @@
     const iframe = document.createElement('iframe');
     if(v.type === 'youtube') {
       iframe.src = `https://www.youtube.com/embed/${v.id}`;
-      iframe.style.height = '200px'; // normale YouTube-Höhe
+      iframe.style.height = '250px'; // YouTube leicht größer
     } else if(v.type === 'tiktok') {
       iframe.src = `https://www.tiktok.com/embed/${v.id}`;
-      iframe.style.height = '550px'; // ausreichend hoch für TikTok
+      iframe.style.height = '400px'; // TikTok kleiner, komplett sichtbar
     }
     iframe.style.width = '100%';
     iframe.setAttribute('frameborder', '0');
