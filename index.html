@@ -63,7 +63,7 @@
   }
 
   #videos {
-    min-height: 600px; /* mehr Platz für TikTok */
+    min-height: 600px; /* genug Platz für TikTok */
   }
 
   iframe {
@@ -115,37 +115,35 @@
 <div class="grid" id="videoGrid"></div>
 
 <script>
-const youtubeChannelID = "UCmIuqz4AAAAJ"; // hier musst du deine echte YouTube-Kanal-ID einsetzen
+const youtubeChannelID = "UCwiawApTSR55zJSS9EKWiV"; // deine Channel-ID
 const tiktokID = "7566655555285060886";   // statisches TikTok-Video
 
 const grid = document.getElementById('videoGrid');
 
-// TikTok-Video statisch einfügen
+// TikTok-Video einfügen (kleiner)
 const tiktokIframe = document.createElement('iframe');
 tiktokIframe.src = `https://www.tiktok.com/embed/${tiktokID}`;
-tiktokIframe.style.height = '440px';
+tiktokIframe.style.height = '440px'; // 20% kleiner
 tiktokIframe.style.width = '100%';
 tiktokIframe.setAttribute('frameborder', '0');
 tiktokIframe.setAttribute('allowfullscreen', '');
 grid.appendChild(tiktokIframe);
 
-// YouTube – neuestes Video automatisch einbinden via RSS-zu-JSON Service
+// YouTube – neuestes Video automatisch einbinden (größer)
 fetch(`https://api.rss2json.com/v1/api.json?rss_url=https://www.youtube.com/feeds/videos.xml?channel_id=${youtubeChannelID}`)
 .then(response => response.json())
 .then(data => {
     if(data.items && data.items.length > 0) {
         const latest = data.items[0];
-        // Video-ID aus Link extrahieren
-        const urlParams = new URLSearchParams(new URL(latest.link).search);
-        const vid = latest.link.split("v=")[1] || "";
+        const vid = latest.link.split("v=")[1];
         if(vid) {
             const ytIframe = document.createElement('iframe');
             ytIframe.src = `https://www.youtube.com/embed/${vid}`;
-            ytIframe.style.height = '300px';
+            ytIframe.style.height = '300px'; // 20% größer
             ytIframe.style.width = '100%';
             ytIframe.setAttribute('frameborder', '0');
             ytIframe.setAttribute('allowfullscreen', '');
-            grid.insertBefore(ytIframe, tiktokIframe); // YouTube oben platzieren
+            grid.insertBefore(ytIframe, tiktokIframe); // YouTube oben
         }
     }
 })
