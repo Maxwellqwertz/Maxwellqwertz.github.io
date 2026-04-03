@@ -9,42 +9,70 @@
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <style>
-    body { font-family: Arial, sans-serif; margin:0; }
+    /* ===== Hintergrund & Schrift ===== */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #e6f2ff; /* hellblauer Hintergrund */
+      color: #003366; /* dunkles Blau für Text */
+    }
 
+    /* ===== Navigation ===== */
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      background: #ffffff;
-      border-bottom: 1px solid #ccc;
+      background-color: #99ccff; /* hellblau */
+      border-bottom: 1px solid #66a3cc;
       padding: 10px;
       display: flex;
       gap: 20px;
       z-index: 1000;
     }
-    nav a { text-decoration: none; color: black; }
+    nav a {
+      text-decoration: none;
+      color: #003366; /* dunkles Blau für Links */
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #001f4d; /* dunkler beim Hover */
+    }
 
+    /* ===== Container ===== */
     .container {
       margin-top: 70px;
       padding: 20px;
       max-width: 1000px;
     }
 
-    h1, h2 { border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+    /* ===== Überschriften ===== */
+    h1, h2 {
+      border-bottom: 1px solid #66a3cc;
+      padding-bottom: 5px;
+      color: #003366;
+    }
 
+    /* ===== Grid für Videos ===== */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
     }
 
+    /* ===== Cards ===== */
     .card {
       border: 1px solid #ddd;
       border-radius: 10px;
       padding: 15px;
+      background-color: rgba(255,255,255,0.9); /* leicht transparentes Weiß */
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
 
-    iframe { width: 100%; height: 200px; }
+    /* ===== Iframes für Videos ===== */
+    iframe {
+      width: 100%;
+      border-radius: 8px;
+    }
   </style>
 </head>
 
@@ -83,16 +111,8 @@
 
 <div id="videos" class="card">
 <h2>Videos</h2>
-<div class="grid" id="videoGrid">
-  <!-- Variante A: Playlist-artige Anzeige mit Video-Links -->
-</div>
+<div class="grid" id="videoGrid"></div>
 <script>
-  // Liste der Videos
-  // Hier kannst du weitere Videos hinzufügen:
-  // Format:
-  // {type: 'youtube', id: 'VIDEO_ID'}
-  // {type: 'tiktok', id: 'VIDEO_ID'}
-  // Einfach neue Einträge in das Array ergänzen.
   const videoLinks = [
     {type: 'youtube', id: 'TzSq2p1QYb0'},
     {type: 'tiktok', id: '7566655555285060886'}
@@ -139,7 +159,6 @@
 <p>Dadurch wurden effizientere Modelle hergeleitet und anschließend eine Simulation implementiert.</p>
 
 </div>
-
 </div>
 
 </body>
