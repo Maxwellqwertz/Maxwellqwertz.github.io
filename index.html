@@ -69,10 +69,14 @@
 
 <div id="about" class="card">
 <h2>Über mich</h2>
+<p>Ich beschäftige mich mit angewandter Mathematik, Datenanalyse und technischen Systemen.</p>
 <ul>
   <li>Simulationen</li>
   <li>Machine Learning</li>
   <li>Bild- und Fahrzeugdatenanalyse</li>
+  <li>Elektrotechnik</li>
+  <li>Laser</li>
+  <li>3D-Druck</li>
   <li>Wirtschaftliche Modelle</li>
   <li>...</li>
 </ul>
@@ -81,9 +85,28 @@
 <div id="videos" class="card">
 <h2>Videos</h2>
 <div class="grid" id="videoGrid">
-  <iframe src="https://www.youtube.com/embed/TzSq2p1QYb0" frameborder="0" allowfullscreen></iframe>
-  <iframe src="https://www.tiktok.com/embed/7566655555285060886" frameborder="0" allowfullscreen></iframe>
+  <!-- Variante A: Playlist-artige Anzeige mit Video-Links -->
 </div>
+<script>
+  // Liste der Videos
+  const videoLinks = [
+    {type: 'youtube', id: 'TzSq2p1QYb0'},
+    {type: 'tiktok', id: '7566655555285060886'}
+  ];
+
+  const grid = document.getElementById('videoGrid');
+  videoLinks.forEach(v => {
+    const iframe = document.createElement('iframe');
+    if(v.type === 'youtube') {
+      iframe.src = `https://www.youtube.com/embed/${v.id}`;
+    } else if(v.type === 'tiktok') {
+      iframe.src = `https://www.tiktok.com/embed/${v.id}`;
+    }
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('allowfullscreen', '');
+    grid.appendChild(iframe);
+  });
+</script>
 </div>
 
 <div id="story" class="card">
@@ -91,7 +114,10 @@
 <p>Meine Begeisterung für Mathematik begann früh und entwickelte sich schnell in Richtung angewandter Modelle und reale Systeme.</p>
 
 <p>Ein zentrales Konzept ist die Fourier-Transformation:</p>
-<p>\[F(\omega)=\int_{-\infty}^{\infty}f(t)e^{-i\omega t}dt\]</p>
+<p>\[\hat{f}(\omega)=\int_{-\infty}^{\infty}f(t)e^{-i\omega t}dt\]</p>
+
+<p>Ein klassisches Beispiel eines elektrischen Schwingkreises (RLC-Glied) wird durch die Differentialgleichung beschrieben:</p>
+<p>\[L\frac{d^2i}{dt^2} + R\frac{di}{dt} + \frac{i}{C} = v(t)\]</p>
 
 <p>Ein weiteres grundlegendes Modell ist die Normalverteilung:</p>
 <p>\[f(x)=\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\]</p>
