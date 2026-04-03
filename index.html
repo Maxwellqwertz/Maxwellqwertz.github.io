@@ -68,6 +68,11 @@
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   }
 
+  /* ===== Videos Card größer machen ===== */
+  #videos {
+    min-height: 600px; /* mehr Platz für TikTok-Video */
+  }
+
   /* ===== Iframes für Videos ===== */
   iframe {
     width: 100%;
@@ -131,7 +136,7 @@
       iframe.style.height = '250px'; // YouTube leicht größer
     } else if(v.type === 'tiktok') {
       iframe.src = `https://www.tiktok.com/embed/${v.id}`;
-      iframe.style.height = '400px'; // TikTok kleiner, vollständig sichtbar
+      iframe.style.height = '550px'; // TikTok bleibt groß, Kasten sorgt für Platz
     }
     iframe.style.width = '100%';
     iframe.setAttribute('frameborder', '0');
