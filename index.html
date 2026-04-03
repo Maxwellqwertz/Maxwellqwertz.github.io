@@ -50,8 +50,9 @@
 
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr; /* Videos untereinander */
     gap: 20px;
+    height: 100%;
   }
 
   .card {
@@ -63,12 +64,14 @@
   }
 
   #videos {
-    min-height: 600px; /* Platz für TikTok */
+    min-height: 1200px; /* Kasten doppelt so hoch wie vorher */
   }
 
   iframe {
     width: 100%;
+    height: 100%;
     border-radius: 8px;
+    border: 0;
   }
 
   .card a {
@@ -114,8 +117,10 @@
 <h2>Videos</h2>
 <div class="grid" id="videoGrid">
 
-<!-- Statische Einbindung -->
-<iframe src="https://www.youtube.com/embed/TzSq2p1QYb0" style="height:300px;"></iframe>
+<!-- YouTube Video (etwas größer) -->
+<iframe src="https://www.youtube.com/embed/TzSq2p1QYb0" style="height:360px;"></iframe>
+
+<!-- TikTok Video (kleiner, passt in Kasten) -->
 <iframe src="https://www.tiktok.com/embed/7566655555285060886" style="height:440px;"></iframe>
 
 </div>
@@ -146,9 +151,6 @@
 </div>
 
 </div>
-
-</body>
-</html>
 
 </body>
 </html>
