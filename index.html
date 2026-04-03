@@ -5,48 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dr. Maximilian Wörner</title>
 
-  <!-- MathJax für LaTeX -->
+  <!-- MathJax -->
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      max-width: 900px;
-    }
-    h1, h2 {
+    body { font-family: Arial, sans-serif; margin:0; }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #ffffff;
       border-bottom: 1px solid #ccc;
-      padding-bottom: 5px;
+      padding: 10px;
+      display: flex;
+      gap: 20px;
+      z-index: 1000;
     }
-    iframe {
-      margin-top: 10px;
+    nav a { text-decoration: none; color: black; }
+
+    .container {
+      margin-top: 70px;
+      padding: 20px;
+      max-width: 1000px;
     }
-    code {
-      background: #f4f4f4;
-      padding: 4px;
+
+    h1, h2 { border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
     }
-    .section {
-      margin-bottom: 40px;
+
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
     }
+
+    iframe { width: 100%; height: 200px; }
   </style>
 </head>
 
 <body>
 
+<nav>
+  <a href="#about">Über mich</a>
+  <a href="#videos">Videos</a>
+  <a href="#math">Mathematik</a>
+  <a href="#projects">Projekte</a>
+</nav>
+
+<div class="container">
+
 <h1>Dr. Maximilian Wörner</h1>
 
 <p>
-  YouTube: <a href="https://www.youtube.com/@Dr.Woerner" target="_blank" rel="noopener noreferrer">Dr.Woerner</a><br>
-  TikTok: <a href="https://www.tiktok.com/@dr.woerner" target="_blank" rel="noopener noreferrer">dr.woerner</a><br>
-  Impressum: <a href="https://mein.online-impressum.de/dr-woerner/" target="_blank" rel="noopener noreferrer">Link</a><br>
-  Google Scholar: <a href="https://scholar.google.com/citations?user=cmIuqz4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Profil</a>
+  <a href="https://www.youtube.com/@Dr.Woerner" target="_blank" rel="noopener noreferrer">YouTube</a> |
+  <a href="https://www.tiktok.com/@dr.woerner" target="_blank" rel="noopener noreferrer">TikTok</a> |
+  <a href="https://scholar.google.com/citations?user=cmIuqz4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a> |
+  <a href="https://mein.online-impressum.de/dr-woerner/" target="_blank" rel="noopener noreferrer">Impressum</a>
 </p>
 
-<div class="section">
+<div id="about" class="card">
 <h2>Über mich</h2>
-<p>
-Ich beschäftige mich mit angewandter Mathematik, Datenanalyse und technischen Systemen.
-</p>
 <ul>
   <li>Simulationen</li>
   <li>Machine Learning</li>
@@ -56,31 +80,32 @@ Ich beschäftige mich mit angewandter Mathematik, Datenanalyse und technischen S
 </ul>
 </div>
 
-<div class="section">
+<div id="videos" class="card">
 <h2>Videos</h2>
-<div style="display:flex; gap:20px; flex-wrap:wrap;">
-  <iframe width="400" height="225" src="https://www.youtube.com/embed/TzSq2p1QYb0" frameborder="0" allowfullscreen></iframe>
-  <iframe width="400" height="225" src="https://www.tiktok.com/embed/7566655555285060886" frameborder="0" allowfullscreen></iframe>
+<div class="grid">
+  <iframe src="https://www.youtube.com/embed/TzSq2p1QYb0" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://www.tiktok.com/embed/7566655555285060886" frameborder="0" allowfullscreen></iframe>
 </div>
 </div>
 
-<div class="section">
+<div id="math" class="card">
 <h2>Mathematik (LaTeX)</h2>
-<p>Inline: \(E = mc^2\)</p>
-<p>Integral:</p>
-<p>\[\int_0^\infty e^{-x} dx = 1\]</p>
+<p>Fourier-Transformation:</p>
+<p>\[F(\omega)=\int_{-\infty}^{\infty}f(t)e^{-i\omega t}dt\]</p>
+
 <p>Normalverteilung:</p>
-<p>\[f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}\]</p>
+<p>\[f(x)=\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\]</p>
 </div>
 
-<div class="section">
+<div id="projects" class="card">
 <h2>Projekte</h2>
-<p>Beispielprojekt:</p>
 <ul>
   <li>Ziel: ...</li>
   <li>Methode: ...</li>
   <li>Ergebnis: ...</li>
 </ul>
+</div>
+
 </div>
 
 </body>
