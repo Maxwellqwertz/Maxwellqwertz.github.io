@@ -63,7 +63,7 @@
   }
 
   #videos {
-    min-height: 600px; /* genug Platz für TikTok */
+    min-height: 600px; /* Platz für TikTok */
   }
 
   iframe {
@@ -112,43 +112,13 @@
 
 <div id="videos" class="card">
 <h2>Videos</h2>
-<div class="grid" id="videoGrid"></div>
+<div class="grid" id="videoGrid">
 
-<script>
-const youtubeChannelID = "UCwiawApTSR55zJSS9EKWiV"; // deine Channel-ID
-const tiktokID = "7566655555285060886";   // statisches TikTok-Video
+<!-- Statische Einbindung -->
+<iframe src="https://www.youtube.com/embed/TzSq2p1QYb0" style="height:300px;"></iframe>
+<iframe src="https://www.tiktok.com/embed/7566655555285060886" style="height:440px;"></iframe>
 
-const grid = document.getElementById('videoGrid');
-
-// TikTok-Video einfügen (kleiner)
-const tiktokIframe = document.createElement('iframe');
-tiktokIframe.src = `https://www.tiktok.com/embed/${tiktokID}`;
-tiktokIframe.style.height = '440px'; // 20% kleiner
-tiktokIframe.style.width = '100%';
-tiktokIframe.setAttribute('frameborder', '0');
-tiktokIframe.setAttribute('allowfullscreen', '');
-grid.appendChild(tiktokIframe);
-
-// YouTube – neuestes Video automatisch einbinden (größer)
-fetch(`https://api.rss2json.com/v1/api.json?rss_url=https://www.youtube.com/feeds/videos.xml?channel_id=${youtubeChannelID}`)
-.then(response => response.json())
-.then(data => {
-    if(data.items && data.items.length > 0) {
-        const latest = data.items[0];
-        const vid = latest.link.split("v=")[1];
-        if(vid) {
-            const ytIframe = document.createElement('iframe');
-            ytIframe.src = `https://www.youtube.com/embed/${vid}`;
-            ytIframe.style.height = '300px'; // 20% größer
-            ytIframe.style.width = '100%';
-            ytIframe.setAttribute('frameborder', '0');
-            ytIframe.setAttribute('allowfullscreen', '');
-            grid.insertBefore(ytIframe, tiktokIframe); // YouTube oben
-        }
-    }
-})
-.catch(err => console.log("Fehler beim Laden des YouTube-Videos:", err));
-</script>
+</div>
 </div>
 
 <div id="story" class="card">
@@ -176,6 +146,9 @@ fetch(`https://api.rss2json.com/v1/api.json?rss_url=https://www.youtube.com/feed
 </div>
 
 </div>
+
+</body>
+</html>
 
 </body>
 </html>
