@@ -1,79 +1,84 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dr. Maximilian Wörner</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Maximilian Wörner</title>
 
-  <!-- MathJax -->
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- MathJax -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-  <style>
-    /* ===== Hintergrund & Schrift ===== */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #e6f2ff; /* hellblauer Hintergrund */
-      color: #003366; /* dunkles Blau für Text */
-    }
+<style>
+  /* ===== Hintergrund & Schrift ===== */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #e6f2e6; /* helles Grün ähnlich green!8!white */
+    color: #336633; /* dunkelgrün ähnlich green!40!black */
+  }
 
-    /* ===== Navigation ===== */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: #99ccff; /* hellblau */
-      border-bottom: 1px solid #66a3cc;
-      padding: 10px;
-      display: flex;
-      gap: 20px;
-      z-index: 1000;
-    }
-    nav a {
-      text-decoration: none;
-      color: #003366; /* dunkles Blau für Links */
-      font-weight: bold;
-    }
-    nav a:hover {
-      color: #001f4d; /* dunkler beim Hover */
-    }
+  /* ===== Navigation ===== */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #336633; /* dunkelgrün */
+    border-bottom: 1px solid #2a4d2a; /* dunkler Akzent */
+    padding: 10px;
+    display: flex;
+    gap: 20px;
+    z-index: 1000;
+  }
+  nav a {
+    text-decoration: none;
+    color: #ffffff; /* weißer Text */
+    font-weight: bold;
+  }
+  nav a:hover {
+    color: #e6f2e6; /* hellgrün beim Hover */
+  }
 
-    /* ===== Container ===== */
-    .container {
-      margin-top: 70px;
-      padding: 20px;
-      max-width: 1000px;
-    }
+  /* ===== Container ===== */
+  .container {
+    margin-top: 70px;
+    padding: 20px;
+    max-width: 1000px;
+  }
 
-    /* ===== Überschriften ===== */
-    h1, h2 {
-      border-bottom: 1px solid #66a3cc;
-      padding-bottom: 5px;
-      color: #003366;
-    }
+  /* ===== Überschriften ===== */
+  h1, h2 {
+    border-bottom: 1px solid #2a4d2a; /* dunkler Akzent */
+    padding-bottom: 5px;
+    color: #336633;
+  }
 
-    /* ===== Grid für Videos ===== */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-    }
+  /* ===== Grid für Videos ===== */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
 
-    /* ===== Cards ===== */
-    .card {
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      padding: 15px;
-      background-color: rgba(255,255,255,0.9); /* leicht transparentes Weiß */
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
+  /* ===== Cards ===== */
+  .card {
+    border: 1px solid #2a4d2a; /* dunkelgrün */
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #e6f2e6; /* hellgrün */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
 
-    /* ===== Iframes für Videos ===== */
-    iframe {
-      width: 100%;
-      border-radius: 8px;
-    }
-  </style>
+  /* ===== Iframes für Videos ===== */
+  iframe {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  /* ===== Links in Cards ===== */
+  .card a {
+    color: #2a4d2a;
+  }
+</style>
 </head>
 
 <body>
@@ -126,7 +131,7 @@
       iframe.style.height = '250px'; // YouTube leicht größer
     } else if(v.type === 'tiktok') {
       iframe.src = `https://www.tiktok.com/embed/${v.id}`;
-      iframe.style.height = '400px'; // TikTok kleiner, komplett sichtbar
+      iframe.style.height = '400px'; // TikTok kleiner, vollständig sichtbar
     }
     iframe.style.width = '100%';
     iframe.setAttribute('frameborder', '0');
