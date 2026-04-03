@@ -9,74 +9,79 @@
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #e6f2e6; /* hellgrün */
-    color: #336633; /* dunkelgrün */
-  }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #e6f2e6; /* hellgrün */
+  color: #336633; /* dunkelgrün */
+}
 
-  nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #336633;
-    border-bottom: 1px solid #2a4d2a;
-    padding: 10px;
-    display: flex;
-    gap: 20px;
-    z-index: 1000;
-  }
-  nav a {
-    text-decoration: none;
-    color: #ffffff;
-    font-weight: bold;
-  }
-  nav a:hover {
-    color: #e6f2e6;
-  }
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #336633;
+  border-bottom: 1px solid #2a4d2a;
+  padding: 10px;
+  display: flex;
+  gap: 20px;
+  z-index: 1000;
+}
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+}
+nav a:hover {
+  color: #e6f2e6;
+}
 
-  .container {
-    margin-top: 70px;
-    padding: 20px;
-    max-width: 1000px;
-  }
+.container {
+  margin-top: 70px;
+  padding: 20px;
+  max-width: 1000px;
+}
 
-  h1, h2 {
-    border-bottom: 1px solid #2a4d2a;
-    padding-bottom: 5px;
-    color: #336633;
-  }
+h1, h2 {
+  border-bottom: 1px solid #2a4d2a;
+  padding-bottom: 5px;
+  color: #336633;
+}
 
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Videos untereinander */
-    gap: 20px;
-    height: 100%;
-  }
+.card {
+  border: 1px solid #2a4d2a;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #e6f2e6;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
 
-  .card {
-    border: 1px solid #2a4d2a;
-    border-radius: 10px;
-    padding: 15px;
-    background-color: #e6f2e6;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  }
+#videoGrid {
+  display: flex;
+  gap: 20px;
+  height: 500px; /* Kasten groß genug für TikTok */
+}
 
-  #videos {
-    min-height: 1200px; /* Kasten doppelt so hoch wie vorher */
-  }
+#videoGrid iframe {
+  border-radius: 8px;
+  border: 0;
+}
 
-  iframe {
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-    border: 0;
-  }
+/* YouTube links, TikTok rechts */
+#videoGrid iframe.youtube {
+  width: 48%;
+  height: 400px; /* leicht größer */
+}
 
-  .card a {
-    color: #2a4d2a;
-  }
+#videoGrid iframe.tiktok {
+  width: 48%;
+  height: 500px; /* passt in Kasten, kein Scrollen */
+}
+
+.card a {
+  color: #2a4d2a;
+}
 </style>
 </head>
 
@@ -115,14 +120,12 @@
 
 <div id="videos" class="card">
 <h2>Videos</h2>
-<div class="grid" id="videoGrid">
+<div id="videoGrid">
+  <!-- YouTube links -->
+  <iframe class="youtube" src="https://www.youtube.com/embed/TzSq2p1QYb0" allowfullscreen></iframe>
 
-<!-- YouTube Video (etwas größer) -->
-<iframe src="https://www.youtube.com/embed/TzSq2p1QYb0" style="height:360px;"></iframe>
-
-<!-- TikTok Video (kleiner, passt in Kasten) -->
-<iframe src="https://www.tiktok.com/embed/7566655555285060886" style="height:440px;"></iframe>
-
+  <!-- TikTok rechts -->
+  <iframe class="tiktok" src="https://www.tiktok.com/embed/7566655555285060886" allowfullscreen></iframe>
 </div>
 </div>
 
